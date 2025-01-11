@@ -1,10 +1,11 @@
 from sqlmodel import SQLModel, create_engine
-from .model import *
+from models.model import *  # Alterado para importação absoluta
+
 sqlite_file_name = "database.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
-engine = create_engine(sqlite_url, echo=True) 
+engine = create_engine(sqlite_url, echo=True)
 
-# Função para criar o banco de dados e as tabelas :D
+# Função para criar o banco de dados e as tabelas
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 

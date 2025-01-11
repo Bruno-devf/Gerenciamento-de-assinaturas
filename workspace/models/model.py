@@ -9,6 +9,8 @@ class Subscribers(SQLModel, table=True):
     site: Optional[str] = None
     data_assinatura: date
     valor: Decimal
+    
+payments: list["Payment"] = Relationship(back_populates="subscriber")
 
 class Payment(SQLModel, table=True):
     id: int = Field(primary_key=True)
